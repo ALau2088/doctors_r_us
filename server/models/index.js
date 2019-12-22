@@ -39,6 +39,12 @@ module.exports = {
       db.run(queryStr, params, err => {
         callback(err, this.changes)
       })
+    },
+    check: (params, callback) => {
+      const queryStr = `SELECT COUNT(*) FROM appointments WHERE date = ? AND time = ? AND doctor_id = ?`;
+      db.run(queryStr, params, err => {
+        callback(err, this);
+      })
     }
   }
 }
