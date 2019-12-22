@@ -31,8 +31,8 @@ module.exports = {
   },
   appointments: {
     getAllAppointments: (req, res) => {
-      const params = req.body.doctorId
-      models.patients.get(params, (err, results) => {
+      const params = [req.body.doctorId, req.body.date]
+      models.appointments.get(params, (err, results) => {
         if (err) {
           console.log(err)
         }
@@ -40,8 +40,8 @@ module.exports = {
       })
     },
     postAnAppointment: (req, res) => {
-      const params = [req.body.name, req.body.phone_number, req.body.doctorId]
-      models.patients.post(params, (err, results) => {
+      const params = [req.body.firstname, req.body.lastname, req.body.date, req.body.time, req.body.kind, req.body.doctorId]
+      models.appointments.post(params, (err, results) => {
         if (err) {
           console.log(err)
         }
@@ -50,12 +50,12 @@ module.exports = {
     },
     deleteAnAppointment: (req, res) => {
       const params = req.body.appointmentId
-      models.patients.delete(params, (err, results) => {
+      models.appointments.delete(params, (err, results) => {
         if (err) {
           return console.error(err.message);
         }
         console.log(results);
-        res.end('Patient Deleted');
+        res.end('Appointment Deleted');
       })
     }
   }

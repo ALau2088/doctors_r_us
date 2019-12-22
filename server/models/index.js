@@ -21,21 +21,21 @@ module.exports = {
       })
     }
   },
-  patients: {
+  appointments: {
     get: (params, callback) => {
-      const queryStr = `SELECT * FROM patients WHERE doctor_id = ?`;
+      const queryStr = `SELECT * FROM appointments WHERE doctor_id = ? AND date = ?`;
       db.all(queryStr, params, (err, rows) => {
         callback(err, rows)
       });
     },
     post: (params, callback) => {
-      const queryStr = `INSERT INTO patients(name, phone_number, doctor_id) VALUES(?,?,?)`;
+      const queryStr = `INSERT INTO appointments(patient_first_name, patient_last_name, date, time, kind, doctor_id) VALUES(?,?,?,?,?,?)`;
       db.run(queryStr, params, function (err) {
         callback(err, this)
       });
     },
     delete: (params, callback) => {
-      const queryStr = `DELETE FROM patients WHERE name = ?`;
+      const queryStr = `DELETE FROM appointments WHERE id = ?`;
       db.run(queryStr, params, err => {
         callback(err, this.changes)
       })
