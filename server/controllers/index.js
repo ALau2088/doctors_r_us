@@ -9,6 +9,24 @@ module.exports = {
         }
         res.send(results);
       })
+    },
+    postADoctor: (req, res) => {
+      const params = [req.body.firstname, req.body.lastname]
+      models.doctors.post(params, (err, results) => {
+        if (err) {
+          console.log(err)
+        }
+        res.sendStatus(201);
+      })
+    },
+    deleteADoctor: (req, res) => {
+      const params = [req.body.firstname, req.body.lastname]
+      models.doctors.delete(params, (err, results) => {
+        if (err) {
+          return console.error(err.message);
+        }
+        res.end('Doctor Deleted');
+      })
     }
   },
   appointments: {
@@ -22,7 +40,7 @@ module.exports = {
       })
     },
     postAnAppointment: (req, res) => {
-      const params = [req.body.name, req.body.phone_number, req.body.doctor_id]
+      const params = [req.body.name, req.body.phone_number, req.body.doctorId]
       models.patients.post(params, (err, results) => {
         if (err) {
           console.log(err)
@@ -31,7 +49,7 @@ module.exports = {
       })
     },
     deleteAnAppointment: (req, res) => {
-      const params = req.body.name
+      const params = req.body.appointmentId
       models.patients.delete(params, (err, results) => {
         if (err) {
           return console.error(err.message);

@@ -30,6 +30,8 @@ $ npm install
 | Description     | Method | Route        |
 | --------------- | ------ | ------------ |
 | Get all doctors | Get    | /api/doctors |
+| Post a doctors | Post    | /api/doctors |
+| Delete a doctors | Delete    | /api/doctors |
 | Get all appointments for a particular doctor and particular day  | Get    | /api/appointments |
 | Post an appointment   | Post   | /api/appointments |
 | Delete an appointment | Delete | /api/appointments |
