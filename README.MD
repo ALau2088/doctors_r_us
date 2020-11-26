@@ -25,16 +25,16 @@ $ npm install
    $ npm run start
    ```
 
-## API EndPoints
+## API Resources
 
-| Description     | Method | Route        |
-| --------------- | ------ | ------------ |
-| Get all doctors | Get    | /api/doctors |
-| Post a doctors | Post    | /api/doctors |
-| Delete a doctors | Delete    | /api/doctors |
-| Get all appointments for a particular doctor and particular day  | Get    | /api/appointments |
-| Post an appointment   | Post   | /api/appointments |
-| Delete an appointment | Delete | /api/appointments |
+| Resource     | Description                                                     | Method | EndPoint          |
+| ------------ | --------------------------------------------------------------- | ------ | ----------------- |
+| doctors      | Get all doctors                                                 | Get    | /api/doctors      |
+| doctors      | Post a doctors                                                  | Post   | /api/doctors      |
+| doctors      | Delete a doctors                                                | Delete | /api/doctors      |
+| appointments | Get all appointments for a particular doctor and particular day | Get    | /api/appointments |
+| appointments | Post an appointment                                             | Post   | /api/appointments |
+| appointments | Delete an appointment                                           | Delete | /api/appointments |
 
 ## Tech Stack
 
